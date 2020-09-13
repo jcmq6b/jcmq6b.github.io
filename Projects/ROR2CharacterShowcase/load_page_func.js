@@ -3,7 +3,7 @@ function printAbilities(character, type, name, desc, cd, note){
     //console.log(type + " " + name + " " + desc + " " + cd + " " + note);
     //console.log(character);
     var trimmed_name = name.replace(/ /g, '');
-    trimmed_name_png = trimmed_name + '.png';
+    var trimmed_name_png = trimmed_name + '.png';
     //console.log(trimmed_name_png);
     var video_src = character+"/"+trimmed_name+".mp4";
     console.log(video_src);
