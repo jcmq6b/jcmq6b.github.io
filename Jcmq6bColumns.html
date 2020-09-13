@@ -1,0 +1,208 @@
+<!--
+    Name: Jessie Murphey
+    Pawprint: jcmq6b
+    Date: 2/8/20
+    Challenge 3: Multi-Column Layout
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Columns</title>
+        <meta charset="utf-8">
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+        <link rel="stylesheet" href="navbar_and_background.css">
+        <style>
+            
+            
+            .clear:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            
+            .column{
+                padding: 20px;
+                margin: 20px;
+                height: 390px;
+                border: 4px solid darkslategray;
+                border-radius: 20px;
+                background-color: aliceblue;
+                box-shadow: 0px 0px 8px 1px rgb(35, 69, 80);
+            }
+            
+            .row{
+                background-color: aliceblue;
+                border: 4px solid darkslategray;
+                border-radius: 20px;
+                box-shadow: 0px 0px 8px 1px rgb(35, 69, 80);
+            }
+            
+            #mainWrapper{
+                width: 1101px;
+                border: 4px solid darkslategray;
+                margin: 50px auto; /*auto aligns content to center 
+                of page */
+                margin-top: 100px;
+                border-radius: 50px; /* border-radius rounds the corners */
+                padding: 8px;
+                background-color: cadetblue;
+                box-shadow: 0px 0px 10px 3px rgb(35, 69, 80);
+            }
+            
+            #mainHeader{
+                font-size: 40px;
+                text-align: center;
+            }
+            
+            .header{
+                text-align: center;
+                font-size: 20px;
+                margin: 0px;
+                
+            }
+            
+            #rowWrapper{
+                width: 428px;
+                float: left;
+            }
+            
+            #middleTop{
+                width: 372px;
+                height: 190px;
+                padding: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            #middleBottom{
+                width: 372px;
+                height: 120px;
+                padding: 20px;
+            }
+            
+            #left{
+                width: 241px;
+                float: left;
+            }
+
+            #right{
+                width: 240px;
+                float: left;
+            }
+            
+            p{text-align: center;}
+            
+            hr{ border-top: 2px solid darkslategray;}
+            
+        </style>   
+    </head>
+    
+    
+    <body>
+        <ul id="navbar">
+            <li><a href="index.html" class="navborder">Jessie Murphey</a></li>
+            <li><a class="navborder active_page" href="Jcmq6bColumns.html">Skills</a></li>
+            <li><a class="navborder" href="Jcmq6bTablesS20.html">Classes Taken</a></li>
+            <li><a href="Jcmq6bProjectsS20.html">Projects</a></li>
+        </ul>
+            
+        <!-- Main wrapper. This div should wrap all columns, row wrapper, and title header -->   
+        <div id="mainWrapper" class="clear">
+            <h2 id="mainHeader">Skills</h2>
+            
+            
+            <!-- Left Column -->
+            <!-- Put left column physical width calculations here: 
+                 241px  -> content width
+                + 40px  -> 2x padding width
+                + 16px  -> 2x border width
+                + 40px  -> 2x margin width
+                
+                = 337px  -> left column physical width
+
+            -->
+            <div id="left" class="column">
+                <h5 class="header">Languages</h5>
+                <hr>
+                <ul>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Java</li>
+                    <li>PHP</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            
+            <!-- Row Wrapper. This div will contain two rows -->
+            <!--Put middle column physical width calculations here:
+                 428px  -> content width of row wrapper
+                ________
+                 428px  -> physical width of middle row
+                
+
+            -->
+            <div id="rowWrapper">
+                <div id="middleTop" class="row">
+                    <h3 class="header">Coursework</h3>
+                    <hr>
+                    <ul>
+                        <li>Advanced Algorithm Design</li>
+                        <li>Databases</li>
+                        <li>Computer Oragnization and Assembly Language</li>
+                        <li>Software Engineering</li>
+                        <li>Web Application Development 1</li>
+                        <li>Object Oriented Programming</li>
+
+                    </ul>
+                    
+                </div>
+                
+                <div id="middleBottom" class="row">
+                    <h4 class="header">Other</h4>
+                    <hr>
+                    <ul>
+                        <li>Member: Mizzou SWE</li>
+
+                    </ul>
+                </div>
+            
+            </div>
+            
+            <!-- Right Column -->
+            <!--Put right column physical width calculations here: 
+                 40px  -> 2x margin width
+                +16px  -> 2x border width
+                +40px  -> 2x padding width
+                
+                = 96px  -> width minus the content width
+                
+                content width = main width - mid physical width - right physical width - 96px
+                 1101px  -> main physical width
+                - 428px  -> mid physical width
+                - 337px  -> left physical width
+                -  96px  -> margin/border/padding width
+                
+                = 240px -> right column physical width
+
+            -->
+            <div id="right" class="column">
+                <h5 class="header">Technologies</h5>
+                <hr>
+                <ul>
+                    <li>Oracle SQL Databases</li>
+                    <li>Java FXML</li>
+                    <li>Git</li>
+                    <li>Linux</li>
+                    <li>Android Studio</li>
+
+                </ul>
+            
+            </div>
+            
+        </div>
+        <p>Last updated at: 3/22/20</p>
+    </body>
+</html>

@@ -1,11 +1,68 @@
+<!--
+    Name: Jessie Murphey   
+    Pawprint: jcmq6b    
+    Date: 1/31/2020
+    Challenge 2: Portfolio
+ -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>J.Murphey's Github.io Page</title>
-    <meta charset="utf-8">
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p>
-</body>
+	<head>
+		<title>Challenge 2</title>
+        <meta charset="utf-8">
+        <!-- Jquery -->
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+        <link rel="stylesheet" href="navbar_and_background.css">
+        <style>
+            
+            img.profilepic {
+                position: relative;
+                
+                /* centering */
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                
+                margin-top: 100px;
+                margin-bottom: 50px;
+                max-width: 40%;
+                max-height: 40%;
+                border: 8px solid darkslategrey;
+            }
+            
+            .header {
+                margin-top: 40px;
+                margin-bottom: 10px;
+                text-align: center;
+                position: relative;
+                color: darkslategrey;
+                
+                text-shadow: 0px 0px 8px white; 
+            }
+            
+            p{
+                text-align: center;
+                font-size: 20px;
+                color:darkslategrey;
+                
+                text-shadow: 0px 0px 8px white;
+            }
+            
+        </style>
+	</head>
+	<body> 
+        
+        <ul id="navbar">
+            <li><a href="index.html" class="navborder active_page">Jessie Murphey</a></li>
+            <li><a class="navborder" href="Jcmq6bColumns.html">Skills</a></li>
+            <li><a class="navborder" href="Jcmq6bTablesS20.html">Classes Taken</a></li>
+            <li><a href="Jcmq6bProjectsS20.html">Projects</a></li>
+        </ul>
+        
+        <div>
+            <img class="profilepic" src="ProfilePic.jpg" alt="Profile Picture">
+            <h1 class="header">Jessie Murphey, Information Technology Major</h1>
+            <p>Aspiring Software Developer from the University of Missouri - Columbia</p>
+        </div>
+        
+	</body>
 </html>

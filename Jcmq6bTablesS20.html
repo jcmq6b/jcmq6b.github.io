@@ -1,0 +1,195 @@
+<!--
+    Name: Jessie Murphey   
+    Pawprint: jcmq6b    
+    Date: 2/16/2020
+    Challenge 4: Tables Spring 2020
+ -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Challenge 4</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="navbar_and_background.css">
+        
+        <style>
+
+            .logo{
+                width: 100px;
+                padding-left: 100px;
+                padding-right: 100px;
+                padding-bottom: 40px;
+            }
+            #courses th, #courses td{
+                border: 3px solid black;
+                padding: 10px 20px;
+                height: 20px;
+                vertical-align: middle;
+            }
+            #courses td{
+                font-size: 15pt;
+            }
+            
+            table#courses{
+                margin: auto;
+                margin-top: 100px;
+                border-collapse: collapse;
+                width: 85%;    
+                box-shadow: 0px 0px 8px 1px rgb(35, 69, 80);
+            }
+            .title{
+                font-size: 25pt;
+                text-align: center;
+            }
+            .title img{
+                width: 10%;
+            }
+            .header{
+                background-color: white;
+                font-size: 18pt; 
+            }
+            .even{
+                background-color: #ffffff;
+            }
+            .odd{
+                background-color: rgb(217, 245, 244);
+            }
+            #compSci{
+                font-family: 'Patua One', cursive;
+                background-color: #b787cc; 
+            }
+            #infoTech{
+                font-family: 'Patua One', cursive;
+                background-color: #e7ef88;
+            }
+            #math{
+                font-family: 'Patua One', cursive;
+                background-color: #26db9c;
+            }
+            
+            #cardWrapper{
+                margin: 50px auto;
+                margin-top: 40px;
+                width: 75%;
+                border: 3px solid black;
+                background-color: aliceblue;
+                box-shadow: 0px 0px 8px 1px rgb(35, 69, 80);
+            }
+            #cardWrapper img{
+                width: 300px;
+                padding: 10px;
+            }
+            #col1, #col2, #col3{
+                float:left; 
+                padding: 10px;
+                text-align: center;
+                font-size: 20pt;
+            }
+            .cardtitle{
+                font-size: 25pt;
+            }
+            hr{
+                border-top: 2px solid black;
+            }
+            .clear:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        </style>
+    
+	</head>
+	<body> 
+        
+        <ul id="navbar">
+            <li><a href="index.html" class="navborder">Jessie Murphey</a></li>
+            <li><a class="navborder" href="Jcmq6bColumns.html">Skills</a></li>
+            <li><a class="navborder active_page" href="Jcmq6bTablesS20.html">Classes Taken</a></li>
+            <li><a href="Jcmq6bProjectsS20.html">Projects</a></li>
+        </ul>
+        
+        <table id="courses" class="table">
+            <thead>
+                <tr class="header">
+                    <th class="title" colspan="5">Classes Taken</th>
+                </tr>
+                <tr class="header">
+                    <th class="title" colspan="5">
+                        <img src="mu-tiger.png" alt="tigerlogo">
+                        University of Missouri-Columbia
+                        <img src="mu-tiger.png" alt="tigerlogo">
+                    </th>
+                    
+                </tr>
+                <tr class="header">
+                    <th>Department</th>
+                    <th>Class</th>
+                    <th>Number</th>
+                    <th>Description</th>
+                    <th>Projects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td rowspan="3" id="compSci">Computer Science</td>
+                    <td>Database Applications and Information Systems</td>
+                    <td>CMP_SC 3380</td>
+                    <td>Covers fundamental topics of database management systems (DBMS) and database-enabled applications. Topics include a brief history of secondary storage and databases, data modeling, introductory SQL, an overview of current database trends, and current popular database systems.</td>
+                    <td>Database creation, various SQL queries</td>
+                </tr>
+                
+                <tr class="even">
+                    
+                    <td>Object Oriented Programming</td>
+                    <td>CMP_SC 3330</td>
+                    <td>This course focuses on object-oriented programming concepts: abstraction, polymorphism, encapsulation, inheritance, interfaces, abstract classes, files, streams, and object serialization. Topics such as GUI and event-driven programming are also tackled.</td>
+                    <td>CPU Monitor Creation, Stopwatch Creation, Bet Tracker Application</td>
+                </tr>
+                
+                <tr class="odd">
+                    
+                    <td>Software Engineering 1</td>
+                    <td>CMP_SC 4320</td>
+                    <td>Overview of software life cycle, including topics in systems analysis and requirements specification, design, implementation testing and maintenance. Uses modeling techniques, project management, peer review, quality assurance, and system acquisition.</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr class="even">
+                    <td id="infoTech">Information Technology</td>
+                    <td>Intro to Digital Media Design</td>
+                    <td>INFOTC 1610</td>
+                    <td>This project-based course is an introduction to the concepts and practices of audio design, graphic design, motion media design and basic video editing. Current technologies are employed to examine design fundamentals and applications of media design that apply to audio and video production and new media production.</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr class="odd">
+                    <td id="math">Math</td>
+                    <td>Calculus III</td>
+                    <td>MATH 2300</td>
+                    <td>This course is devoted to the study of vectors, solid analytic geometry, and calculus of several variables.</td>
+                    <td>NA</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div id="cardWrapper" class="clear">
+            <div id="col1">
+                <img src="ProfilePic.jpg" alt="profilepic">
+            </div>
+            <div id="col2">
+                <div class="cardtitle">Jessie Murphey</div>
+                <hr>
+                <div>Information Technology Major | Senior</div>
+                <div>Credit Hours: 103h</div>
+            </div>
+            <div id="col3">
+                <div class="cardtitle">Info</div>
+                <hr>
+                <div>Email: jcmq6b@mail.missouri.edu</div>
+                <div>Github: https://github.com/jcmq6b</div>
+            </div>
+        </div>
+        
+	</body>
+</html>

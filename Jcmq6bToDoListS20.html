@@ -1,0 +1,229 @@
+<!--
+    Name: Jessie Murphey   
+    Pawprint: jcmq6b    
+    Date: 2/28/2020
+    Challenge  To-Do List S20
+ -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>To-Do List</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Jquery -->
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="lightmode.css">
+        
+         <style>      
+            #pageHeader{
+                text-align: center;
+            }
+            #fourm_buttons{
+                padding: 10px;
+                text-align: center;
+                font-size: 12px;
+            }
+             #toDo th{
+                 border-radius: 10px;
+                 font-size: 20px;
+                 border-bottom: 1px solid black;  
+             }
+             
+             #toDo tr, #toDo td{
+                 border-radius: 10px;
+                 border-bottom: 1px solid black;
+             }
+             #form{
+                 text-align: center;
+             }
+             .placeholder{
+                 height: 45px;
+             }
+             .formItems{
+                 margin: 10px;
+             }
+             #typeInput{
+                 margin-left: 10px;
+                 margin-right: 10px;
+             }
+             h2{
+                 font-size: 17px;
+                 text-align: center;
+             }
+             .trash{
+                 height: 40px;
+                 width: 40px;
+                 text-align: center;
+                 background-image: url(trashcan.jpg);
+                 background-size: contain;
+                 background-repeat: no-repeat;
+                 padding: 0px;
+                 margin-top: 3px;
+             }
+             .action{
+                 height: 40px;
+                 width: 40px;
+                 background-image: url(red-x.png);
+                 background-size: contain;
+                 background-repeat: no-repeat;
+                 text-align: center;
+                 padding: 0px;
+                 margin-top: 3px;
+             }
+             #modeButton{
+                position: fixed;
+                right: 10%;
+             }
+             #projectLink{
+                margin-left: 10%;
+                font-size: 18px;
+                text-decoration: underline;
+             }
+             
+        </style>
+        
+        <script>
+            $(document).ready(function(){
+                //Function to change color mode
+                let mode = "light";
+                $("#modeButton").click(function(){
+                    console.log(mode)
+                    if(mode=="light"){
+                         $('link[href="lightmode.css"]').attr('href', 'darkmode.css');
+                        $("#modeButton").text("Dark Mode");
+                        mode = "dark";
+                    }else{
+                        $('link[href="darkmode.css"]').attr('href', 'lightmode.css');
+                        $("#modeButton").text("Light Mode");
+                        mode = "light";
+                    }
+                });
+                //Function to change Red X to Green Check Mark
+                $("table").on("click", ".action", function(){
+                    //Tests what the current background is
+                    if($(this).closest("button").css("background-image").includes("red-x.png")){
+                        $(this).closest("button").css("background-image", "url(check-mark.png)");
+                    }else{
+                        $(this).closest("button").css("background-image", "url(red-x.png)");
+                    }
+                        
+                });
+                
+                //Function to delete row from table
+                $("table").on("click", ".trash", function(){
+                    $(this).closest("tr").remove();
+                });
+                
+                //Function to add row to table
+                $("#addRow").click(function(){
+                    titleValue = $("#inputTitle").val();
+                    //console.log(titleValue);
+                    typeValue = $("#inputType").val();
+                    dateValue = $("#dateInput").val();
+                    //Checks for empty fields
+                    if(titleValue=="" || typeValue=="selectType" || dateValue== undefined){
+                        alert("All fields required");
+                    }else{
+                        newRow = "<tr>" + 
+                        "<td>" + titleValue + "</td>" +
+                        "<td>" + typeValue + "</td>" +
+                        "<td>" + dateValue + "</td>" +
+                        "<td><button class=action type=button> </button></td>" + 
+                        "<td><button class=trash type=button> </button></td>" +
+                        "</tr>";
+                        $(newRow).insertAfter("#titles");
+                        $("#inputTitle").val("");
+                        $("#inputType").val("selectType");
+                        $("#dateInput").val("");
+                        
+                        //console.log($("#placeholder1").val());
+                        if($("#placeholder1").val() != null){
+                            $("#placeholder1").remove();
+                        }else if($("#placeholder2").val() != undefined){
+                            $("#placeholder2").remove();
+                        }else if($("#placeholder3").val() != undefined){
+                            $("#placeholder3").remove();
+                        }else if($("#placeholder4").val() != undefined){
+                            $("#placeholder4").remove();
+                        }else if($("#placeholder5").val() != undefined){
+                            $("#placeholder5").remove();
+                        }else if($("#placeholder6").val() != undefined){
+                            $("#placeholder6").remove();
+                        }
+                        
+                    }
+                });
+                
+                //Removes a placeholder
+                
+                //Function to clear the form
+                $("#clearForm").click(function(){
+                    $("#inputTitle").val("");
+                    $("#inputType").val("selectType");
+                    $("#dateInput").val("");
+                });
+                
+                //Function to change the page header's title
+                $("#pageHeader").dblclick(function(){
+                    var title = prompt("Please enter a new title:", "");
+                    if(title != "" && title != null){
+                        $("#pageHeader").html(title);
+                    }else{
+                        alert("Title field cannot be empty");
+                    }
+                });
+            });
+            
+        </script>
+        
+	</head>
+	<body> 
+        <div id="top_wrapper">
+            <h1 id="pageHeader">To-Do List</h1>
+            <a id="projectLink" href="Jcmq6bProjectsS20.html">Projects</a>
+            <button id="modeButton" type="button" class="button_box button_text">Light Mode</button>
+        </div>
+
+        <table id="toDo">
+            <tr id="titles">
+                <th>Title</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            <tr id="placeholder1" class="placeholder"><td colspan="5"></td></tr>
+            <tr id="placeholder2" class="placeholder"><td colspan="5"></td></tr>
+            <tr id="placeholder3" class="placeholder"><td colspan="5"></td></tr>
+            <tr id="placeholder4" class="placeholder"><td colspan="5"></td></tr>
+            <tr id="placeholder5" class="placeholder"><td colspan="5"></td></tr>
+            <tr id="placeholder6" class="placeholder"><td colspan="5"></td></tr>
+        </table>
+
+        <div id="bottomWrapper" class="clear">
+            <form id="form">
+                <h2>Add a Task</h2>
+                <input class="formItems" id="inputTitle" type="text" name="TitleInput" placeholder="Title">
+                
+                <select class="formItems" id="inputType" name="TypeInput">
+                    <option value="selectType">Select Type</option>
+                    <option value="Homework">Homework</option>
+                    <option value="Project">Project</option>
+                    <option value="Study">Study</option>
+                </select>
+                
+                <input class="formItems" id="dateInput" type="date" name="dueDate">
+                
+            </form>
+            
+            <div id="fourm_buttons">
+                <button id="addRow" type="button">Add to List</button>
+                <button id="clearForm" type="button">Clear Forum</button>
+            </div>
+        </div>
+	</body>
+    
+    
+</html>

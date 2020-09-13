@@ -1,0 +1,122 @@
+<!--
+    Name: Jessie Murphey   
+    Pawprint: jcmq6b    
+    Date: 2/22/2020
+    Challenge Flex Box S20
+ -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Challenge 5</title>
+        <meta charset="utf-8">
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+        <link rel="stylesheet" href="navbar_and_background.css">
+        <style>
+            #mainContainer{
+                display: flex;
+                flex-wrap: wrap-reverse;
+                width: 90%;
+                position: relative;
+                margin: 50px auto;
+                margin-top: 30px;
+                overflow: hidden;
+            }
+            
+            .cardContainer{
+                border: 4px solid darkslategrey;
+                border-radius: 10%;
+                width: 500px;
+                height: 250px;
+                background-color: aliceblue;
+                position: relative;
+                margin-top: 5%;
+                margin-bottom: 5%;
+                margin-left: auto;
+                margin-right: auto;
+                box-shadow: 0 0 10px #243c3c;
+                display: flex;
+                flex-wrap: wrap-reverse;
+                overflow: hidden;
+            }
+            .column{
+                flex: 50%;
+            }
+            
+            .cardTitle{
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-size: 20px;
+                /* Front retrieved from https://fonts.google.com/specimen/Patua+One */
+                font-family: 'Patua One', cursive;
+                
+            }
+            
+            .right{
+                text-align: center;
+                width: 60%;
+                margin: auto;
+                
+            }
+            .cardDescription{
+                font-size: 18px;
+            }
+            
+            .cardLink{
+                font-size: 20px;
+                font: bold;
+                color: darkslategrey;
+            }
+            
+            #mainContainer img{
+                width: 80%;
+                height: 90%;
+                padding: 10px;
+                border-right: 10px double darkslategrey;
+            }
+        </style>   
+	</head>
+	<body> 
+        
+        <ul id="navbar">
+            <li><a href="index.html" class="navborder">Jessie Murphey</a></li>
+            <li><a class="navborder" href="Jcmq6bColumns.html">Skills</a></li>
+            <li><a class="navborder" href="Jcmq6bTablesS20.html">Classes Taken</a></li>
+            <li><a href="Jcmq6bProjectsS20.html" class="active_page">Projects</a></li>
+        </ul>
+        
+        <div id="mainContainer">
+            <div class="cardContainer">
+                <div class="column"><img src="php.png" alt="php logo"></div>
+                <div class="column right">
+                    <span class="cardTitle">PHP Project</span>
+                    <p class="cardDescription">List of functions that print to a new window using php.</p>
+                    <a class="cardLink" href="http://ec2-3-83-96-252.compute-1.amazonaws.com/Jcmq6bPHP/">visit</a>
+                </div>
+                
+            </div>
+            
+            <div class="cardContainer">
+                <div class="column"><img src="ajax.png" alt="mountain"></div>
+                <div class="column right">
+                    <span class="cardTitle">AJAX Project</span>
+                    <p class="cardDescription">A site to display the information for CS/IT 2830 class made using AJAX</p>
+                    <a class="cardLink" href="http://ec2-3-83-96-252.compute-1.amazonaws.com/AJAXChallenge/">visit</a>
+                </div>
+            </div>
+            
+            <div class="cardContainer">
+                <div class="column"><img src="to_do_pic.png" alt="mizzou football"></div>
+                <div class="column right">
+                    <span class="cardTitle">To-Do List Project</span>
+                    <p class="cardDescription">A dynamic To-Do list to keep track of homework, studying, and projects</p>
+                    <a class="cardLink" href="Jcmq6bToDoListS20.html">visit</a>
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        
+	</body>
+</html>
