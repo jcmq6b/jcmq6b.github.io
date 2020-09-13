@@ -1,0 +1,264 @@
+<!--
+    Name: Jessie Murphey   
+    Pawprint: jcmq6b    
+    Date: 4/17/20
+    Challenge  AJAX Spring S20
+ -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AJAX Challenge</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Jquery -->
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="loading_text.css">
+
+        
+        <style>
+            body{
+                background-color: #064472;
+                color: white;
+            }
+            a{
+                color: white;
+            }
+            h5{
+                margin-top: 5px;
+            }
+            #top_wrapper{
+                text-align: center;
+                padding: 10px;
+                margin-bottom: 5%;
+            }
+            #middle_wrapper{
+                display: flex;
+                text-align: center;
+                color: black;
+                height: 150px;
+                margin-bottom: 40px;
+            }
+            #assignment_box{
+                display: inline-block;
+                margin: auto;
+                border: 2px black solid;
+                width: 45%;
+                margin-bottom: 5%;
+                border-radius: 20%;
+                background-color: aliceblue;
+                height: 100%;
+                box-shadow:  0 0 5px 6px #002946;
+            }
+            #class_type_box{
+                display: inline-block;
+                margin: auto;
+                border: 2px black solid;
+                width: 45%;
+                margin-bottom: 5%;
+                border-radius: 20%;
+                background-color: aliceblue;
+                height: 100%;
+                box-shadow:  0 0 5px 6px #002946;
+            }
+            #bottom_wrapper{
+                color: black;
+                text-align: center;
+                border: 2px black solid;
+                width: 80%;
+                margin: auto;
+                border-radius: 20%;
+                background-color: aliceblue;
+                height: 250px;
+                box-shadow:  0 0 5px 6px #002946;
+            }
+            #week{
+                list-style-type: none;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            li{
+                    display: inline;                
+                    text-decoration: none;
+                    background-color: #dee1e3;
+                    width: 15%;
+            }
+            button{
+                display: inline-block;
+                width: 15%;
+                background-color: #dee1e3;
+            }
+            .text_field{
+                margin-bottom: 10px;
+            }
+        </style>
+        
+        <script>
+            var loading = "<span class='l'>L</span>" +
+                    "<span class='o'>o</span>" + "<span class='a'>a</span>" + "<span class='d'>d</span>" + "<span class='i'>i</span>" + "<span class='n'>n</span>" + "<span class='g'>g</span>";
+            
+            var callLoadingAnimation;
+            var tick = 1;
+            function loadingAnimation(){
+                callLoadingAnimation = setInterval(function(){
+                    if(tick ==1){
+                        $(".l").css("color", "orange");
+                        $(".o").css("color", "#edcb11");
+                        $(".a").css("color", "green");
+                        $(".d").css("color", "skyblue");
+                        $(".i").css("color", "blue");
+                        $(".n").css("color", "purple");
+                        $(".g").css("color", "red");
+                        tick = 2;
+                        //console.log("tick = 1");
+                    }
+                    else if(tick == 2){
+                        $(".l").css("color", "#edcb11");
+                        $(".o").css("color", "green");
+                        $(".a").css("color", "skyblue");
+                        $(".d").css("color", "blue");
+                        $(".i").css("color", "purple");
+                        $(".n").css("color", "red");
+                        $(".g").css("color", "orange");
+                        tick = 3;
+                        //console.log("tick = 2");
+                    }else if(tick == 3){
+                        $(".l").css("color", "green");
+                        $(".o").css("color", "skyblue");
+                        $(".a").css("color", "blue");
+                        $(".d").css("color", "purple");
+                        $(".i").css("color", "red");
+                        $(".n").css("color", "orange");
+                        $(".g").css("color", "#edcb11");
+                        tick = 4;
+                        //console.log("tick = 3");
+                    }else if(tick == 4){
+                        $(".l").css("color", "skyblue");
+                        $(".o").css("color", "blue");
+                        $(".a").css("color", "purple");
+                        $(".d").css("color", "red");
+                        $(".i").css("color", "orange");
+                        $(".n").css("color", "#edcb11");
+                        $(".g").css("color", "green");
+                        tick = 5;
+                        //console.log("tick = 4");
+                    }else{
+                        $(".l").css("color", "blue");
+                        $(".o").css("color", "purple");
+                        $(".a").css("color", "red");
+                        $(".d").css("color", "orange");
+                        $(".i").css("color", "#edcb11");
+                        $(".n").css("color", "green");
+                        $(".g").css("color", "skyblue");
+                        tick = 1;
+                        //console.log("tick = 5");
+                    }
+                }, 200);
+            }
+            
+            function getAssignment() {
+               //console.log("Start of getAssignment Function"); 
+                document.getElementById("assignment_text").innerHTML = loading;
+                loadingAnimation();
+                $.getJSON("https://www.mizzouit.com/2830/challenge9/classInfo.php?content=currentAssignment&format=json", function(data){
+                    var date = new Date(data.dueDateTimestamp*1000).toLocaleDateString();
+                  $("#assignment_text").html(data.assignmentName + " is due on " + date);
+                });
+            }
+           
+           function getClassInfo(){
+               document.getElementById("class_text").innerHTML = loading;
+                loadingAnimation();
+                $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php?content=classType", function(data){
+                   $("#class_text").html(data);
+
+               });
+           }
+            
+            function getHoursInfo(day) {
+                $("button").css("background-color", "#dee1e3");
+                console.log($("#"+day));
+                $("#"+day).css("background-color", "skyblue");
+                
+                document.getElementById("office_info_text").innerHTML = loading;
+                loadingAnimation();
+                
+                var url = "https://www.mizzouit.com/2830/challenge9/classInfo.php?content=officeHours&format=xml&day=" + day;
+                
+                var xmlHttp = new XMLHttpRequest();
+                
+                xmlHttp.onload = function() {
+                    if (xmlHttp.status == 200) {
+                        //gets the XML document
+                        var xmlDoc = xmlHttp.responseXML;
+                        console.log(day);
+                        if(day!=null){
+                            //parses the data into an array
+                            var person_data = xmlDoc.getElementsByTagName("person");
+                            var time_data = xmlDoc.getElementsByTagName("time");
+                            var location_data = xmlDoc.getElementsByTagName("location");
+                            var output = '';
+                            for(var i = 0; i < person_data.length; i++){
+                                output += person_data[i].childNodes[0].nodeValue + " has office hourse from " + time_data[i].childNodes[0].nodeValue + " at " + location_data[i].childNodes[0].nodeValue + "<br>"
+                            }
+                        }else{
+                            output = "Please click on the day of the week";
+                        }
+
+                            var divObj = document.getElementById('office_info_text');
+                            divObj.innerHTML = output;
+                    }
+                };
+                xmlHttp.open("GET", url, true);
+		        xmlHttp.send();
+                if(xmlHttp.readyState == 4)clearInterval(callLoadingAnimation);
+            }
+</script>
+        
+	</head>
+	<body  onload="getAssignment(); getClassInfo();">
+        <div id="main_wrapper">
+            <div id="top_wrapper">
+                <a id="projectLink" href="http://ec2-3-83-96-252.compute-1.amazonaws.com/Challenge7/Jcmq6bProjectsS20.html">Back To Projects</a>
+                <h2 id="pageHeader">CS/IT 2830 Dashboard</h2>
+            </div>
+
+            <div id="middle_wrapper">
+                <div id="assignment_box">
+                    <h5>Current Assignment:</h5>
+                    <hr>
+                    <div id="assignment_text" class="text_field">
+                        Text Here
+                    </div>
+
+                </div>     
+                <div id="class_type_box">
+                    <h5>Class Type:</h5>
+                    <hr>
+                    <div id="class_text" class="text_field">
+                        Text Here
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom_wrapper">
+                <h5>Office Hour Info:</h5>
+                <hr>
+                <ul id="week">
+                    <li ><button id="monday" onclick="getHoursInfo('monday')">Monday</button></li>
+                    <li onclick="getHoursInfo('tuesday')"><button id="tuesday">Tuesday</button></li>
+                    <li onclick="getHoursInfo('wednesday')"><button id="wednesday">Wednesday</button></li>
+                    <li onclick="getHoursInfo('thursday')"><button id="thursday">Thursday</button></li>
+                    <li onclick="getHoursInfo('friday')"><button id="friday">Friday</button></li>
+                </ul>
+                <div id="office_info_text" class="text_field">
+                    Please select a day.
+                </div>
+            </div>
+        </div>    
+	</body>
+    
+    
+</html>

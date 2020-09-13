@@ -1,0 +1,166 @@
+<!--
+    name: Jessie Murphey
+    pawprint: jcmq6b
+    date: 4/3/20
+    Challenge PHP S20
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Challenge 8 PHP</title>
+    <meta charset="utf-8">
+    <script src="jslibs/jquery-2.1.4.min.js"></script>
+    
+    <style>
+        #main_wrapper{
+            width: 70%;
+            min-height: 60vh;
+            background-color: #487ad4;
+            border: 2px solid black;
+            border-radius: 10%;   
+            margin: auto;
+            text-align: center;
+        }
+        h1{
+            color: white;
+            text-shadow: 5px 1px black;
+        }
+        #selection{
+            margin-bottom: 20px;
+        }
+        div{
+            padding: 10px;
+        }
+        form{
+            padding: 10px;
+        }
+        label{
+            background-color: white;
+            padding: 1px;
+        }
+    </style>
+    
+    <script>
+        $(document).ready(function(){
+            $("#choose_func").change(function(){
+                console.log("Selection chosen!");
+                $("#function_div").html("");
+                var select_object = $(this).children("option:selected").val();
+                if(select_object!=""){
+                    if(select_object=="greeting"){
+                        var $form = $("<form />", {id: "func_form", action: "greeting.php", method: "POST"}),
+                            formFNLabel = $("<label />", {for: "fname", text: "First Name:"}),
+                            formFName = $("<input />", {id: "fname", name: "firstname", type: "text"}),
+                            formLNLabel = $("<label />", {for: "lname", text: "Last Name:"}),
+                            formLname = $("<input />", {id: "lname", name: "lastname", type: "text"}),
+                            formSubmit = $("<input />" , {id: "submit_button", type: "submit", value: "Submit"}),
+                            formClear = $("<input />" , {id: "clear_button", type: "reset", value: "Clear"});
+                        $form.append(formFNLabel, formFName, 
+                            $("<br />"),
+                            formLNLabel, formLname, 
+                            $("<br />"), 
+                            formSubmit, formClear).appendTo($("#function_div"));
+                        $("#func_form").bind("submit", function(){
+                            var firstname = $("#fname").val();
+                            var lastname = $("#lname").val();
+                            //console.log(firstname);
+                            //console.log(lastname);
+                            if(firstname =="" || lastname ==""){
+                                alert("First Name and Last Name must have entries.");
+                                return false;
+                            }
+                            if(Number(firstname) && Number(lastname)){
+                                alert("First Name and Last Name must be strings.");
+                                return false;
+                            }
+                        });
+                    }
+                    else if(select_object=="factorial"){
+                        var $form = $("<form />", {id: "func_form", action: "factorial.php", method: "GET"}),
+                            formLabel = $("<label />", {for: "form_num", text: "Number: "}),
+                            formNum = $("<input />", {id: "form_num", name: "number", type: "text"}),
+                            formSubmit = $("<input />" , {id: "submit_button", type: "submit", value: "Submit"}),
+                            formClear = $("<input />" , {id: "clear_button", type: "reset", value: "Clear"});
+                        $form.append(formLabel, formNum, $("<br />"), formSubmit, formClear).appendTo($("#function_div"));
+                        
+                        $("#func_form").bind("submit", function(){
+                            var num = $("#form_num").val();
+                            if(!Number(num)){
+                                alert("Must be a valid number");
+                                return false;
+                            }
+                        });
+                    }
+                    else if(select_object=="reverse"){
+                        var $form = $("<form />", {id: "func_form", action: "reverse.php", method: "GET"}),
+                            formLabel = $("<label />", {for: "string_entered", text: "String: "}),
+                            formString = $("<input />", {id: "string_entered", name: "string", type: "text"}),
+                            formSubmit = $("<input />" , {id: "submit_button", type: "submit", value: "Submit"}),
+                            formClear = $("<input />" , {id: "clear_button", type: "reset", value: "Clear"});
+                        $form.append(formLabel, formString, $("<br />"), formSubmit, formClear).appendTo($("#function_div"));
+                        
+                        $("#func_form").bind("submit", function(){
+                            var string = $("#string_entered").val();
+                            console.log(Number(string));
+                            if(string ==""){
+                                alert("String cannot be empty.");
+                                return false;
+                            }
+                            if(Number(string)){
+                                alert("String must be a valid string.");
+                                return false;
+                            }
+                        });
+                    }
+                    else if(select_object=="sum"){
+                        var $form = $("<form />", {id: "func_form", action: "sum.php", method: "GET"}),
+                                formLabelN1 = $("<label />", {for: "n1_entered", text: "n1: "}),
+                                formN1 = $("<input />", {id: "n1_entered", name: "n1", type: "text"}),
+                                formLabelN2 = $("<label />", {for: "n2_entered", text: "n2: "}),
+                                formN2 = $("<input />", {id: "n2_entered", name: "n2", type: "text"}),
+                                formSubmit = $("<input />" , {id: "submit_button", type: "submit", value: "Submit"}),
+                                formClear = $("<input />" , {id: "clear_button", type: "reset", value: "Clear"});
+                            $form.append(formLabelN1, formN1, $("<br />"), formLabelN2, formN2, $("<br />"), formSubmit, formClear).appendTo($("#function_div"));
+                        
+                        $("#func_form").bind("submit", function(){
+                            var n1 = $("#n1_entered").val();
+                            var n2 = $("#n2_entered").val();
+                            if(Number(n1)>=Number(n2)){
+                                alert("n1 must be less than n2.");
+                                return false;
+                            }
+                            if(!Number(n1) || !Number(n1)){
+                                alert("n1 and n2 must be a valid numbers");
+                                return false;
+                            }
+                        });
+                    }
+                }
+                console.log(select_object);
+            });
+            
+        });
+    </script>
+    
+</head>
+    
+<body>
+    <a href="http://ec2-3-83-96-252.compute-1.amazonaws.com/Challenge7/Jcmq6bProjectsS20.html">Back to Projects</a>
+    <div id="main_wrapper">
+        <h1>PHP Functions</h1>
+        <form id="selection">
+            <label for="choose_func">Function:</label>
+            <select id="choose_func" name="choose[]">
+                <option value="">Select Function</option>
+                <option value="greeting">Greeting</option>
+                <option value="factorial">Factorial</option>
+                <option value="reverse">Reverse String</option>
+                <option value="sum">Sum of Squares</option>
+            </select>
+	   </form>
+        <div id="function_div">
+            <!-- jquery inserts here -->
+        </div>
+    </div>
+</body>
+</html>

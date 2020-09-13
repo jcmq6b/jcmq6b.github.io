@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ROR2 Character Showcase</title>
+    <meta charset="utf-8">
+    <script src="jslibs/jquery-2.1.4.min.js"></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+/*            https://www.freepik.com/free-photos-vectors/background Background vector created by starline - www.freepik.com*/
+            background-color: #bcbcbc;
+            background-image: url(white_tech.png);
+            background-size: 100% 100%;
+            color: black;
+            text-align: center;
+        }
+        #title{
+            font-size: 50px;
+            font-family: 'Alfa Slab One', cursive;
+            background: -webkit-linear-gradient(#808080, #000000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #main_wrapper{
+            margin: 3%;
+            text-align: center;
+        }
+        #form_div{
+            width: 100%;
+            background-color: #bcbcbc;
+            border: 1px solid black;
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            display: block;
+        }
+        form{
+            text-align: right;
+            margin-right: 2%;
+        }
+        #character_wrapper{
+            margin: auto;
+            width: 75%;
+            color: aliceblue;
+            box-shadow: 0 0 6px 2px darkgray;
+            border-radius: 2%;
+            padding: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+/* https://www.everypixel.com/image-15424274295008406087 */
+            background-image: url(circuit_background.png);
+            background-repeat: no-repeat;
+            background-size: cover;         
+        }
+        .character{
+            border-radius: 4%;
+            box-shadow: 0 0 8px 2px black;
+            width: 20%;
+            text-align: center;
+            margin: 1%;
+            background-color: #cbcbcb;
+        }
+        .character img{
+            width: 90%;
+        }
+        .character a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            text-shadow: 0 0 2px #65caff;
+        }
+    </style>  
+
+</head>
+    
+<body>
+    <div id="main_wrapper">
+        <div id="form_div">
+            <form action="login_page.php" target="_blank">
+                <input type="submit" value="Go To Admin Login Page">
+            </form>
+        </div>
+        <div>
+            <h1 id="title">Risk of Rain 2 Character Showcase</h1>
+            <p>Select a character to view their stats and abilities.</p>
+        </div>
+        <div id="character_wrapper">
+            <div id="acrid" class="character">
+                <a href="acrid.html"><h3>Acrid</h3></a>
+                <img src="Acrid/AcridPic.png" alt="acrid_pic">
+            </div>
+            <div id="artificer" class="character">
+                <a href="artificer.html"><h3>Artificer</h3></a>
+                <img src="Artificer/ArtificerPic.png" alt="artificer_pic">
+            </div>
+            <div id="commando" class="character">
+                <a href="commando.html"><h3>Commando</h3></a>
+                <img src="Commando/CommandoPic.png" alt="commando_pic">
+            </div>
+            <div id="engineer" class="character">
+                <a href="engineer.html"><h3>Engineer</h3></a>
+                <img src="Engineer/EngineerPic.png" alt="engineer_pic">
+            </div>
+            <div id="huntress" class="character">
+                <a href="huntress.html"><h3>Huntress</h3></a>
+                <img src="Huntress/HuntressPic.png" alt="huntress_pic">
+            </div>
+            <div id="loader" class="character">
+                <a href="loader.html"><h3>Loader</h3></a>
+                <img src="Loader/LoaderPic.png" alt="loader_pic">
+            </div>
+            <div id="mercenary" class="character">
+                <a href="mercenary.html"><h3>Mercenary</h3></a>
+                <img src="Mercenary/MercenaryPic.png" alt="mercenary_pic">
+            </div>
+            <div id="mul-t" class="character">
+                <a href="mul-t.html"><h3>MUL-T</h3></a>
+                <img src="MUL-T/MUL-TPic.png" alt="MUL-T_pic">
+            </div>
+            <div id="rex" class="character">
+                <a href="rex.html"><h3>Rex</h3></a>
+                <img src="Rex/RexPic.png" alt="rex_pic">
+            </div>
+        </div>
+        <p>Last updated: 5/8/2020</p>
+    </div>
+</body>
+</html>
