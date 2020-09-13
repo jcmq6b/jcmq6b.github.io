@@ -6,7 +6,7 @@ function printAbilities(character, type, name, desc, cd, note){
     var trimmed_name_png = trimmed_name + '.png';
     //console.log(trimmed_name_png);
     var video_src = character+"/"+trimmed_name+".mp4";
-    console.log(video_src);
+    //console.log(video_src);
     var table_fill = ("<tr>"
         + "<th colspan='2'>" + name + "</th>"
         +"<td><button id='"+video_src+"' type='button' onclick='addVideoSrc(this.id)'>"
@@ -70,7 +70,7 @@ function grabAbilities(input_character){
 function grabStats(input_character){
 
     $.getJSON("read_file.php",{"character": input_character, "file": "character_stats.json"}, function(recieved){
-        console.log(recieved);
+        //console.log(recieved);
         if(recieved!="Character not found"){
             var table_stats = ("<tr>"
             +"<th>Health</th>"
@@ -107,7 +107,7 @@ function grabStats(input_character){
 }
 
 function addVideoSrc(recv_src){
-    console.log(recv_src);
+    //console.log(recv_src);
     $("#video_box").empty();
     $("#video_box").html("<source src='"+recv_src+"' type='video/mp4'>");
     $("#video_box").controls = true;
